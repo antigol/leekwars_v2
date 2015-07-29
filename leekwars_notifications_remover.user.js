@@ -21,14 +21,8 @@
 		_.post("notification/read-all", {});
 		LW.notifications.unread = 0;
 		LW.updateCounters();
-		$('.notification').css('background-color','');
 	});
 
-	LW.on('pageload', function()
-	{
-		var c = $('.notifications-counter').first().contents().text();
-		$('.notification').slice(0, c).css('background-color','#d0ffd8');
-	});
 
 	var init_interval = setInterval(function()
 	{
@@ -38,13 +32,7 @@
 			LW.socket.socket.onmessage = function(msg)
 			{
 				this.onmessage_back_notifications_remover(msg);
-				$('.notification').css('background-color','');
-				var c = $('.notifications-counter').first().contents().text();
-				$('.notification').slice(0, c).css('background-color','#d0ffd8');
 			}
-
-			var c = $('.notifications-counter').first().contents().text();
-			$('.notification').slice(0, c).css('background-color','#d0ffd8');
 			
 			clearInterval(init_interval);
 		}
