@@ -20,7 +20,9 @@ LW.on('pageload', function()
 		var minutes = d.getMinutes();
 		
 		if ((hour >= 11 && hour < 14) || (hour >= 17 && hour < 20) || (hour >= 20 && hour < 23)) {
-			$('<div style="background-color:red; color:black; padding:5px; style="font-weight:bold";">Warning !</div>').insertAfter('#editor-page .page-header');
+			var color = 'orange';
+			if (minutes >= 25 && minutes <= 31) color = 'red';
+			$('<div style="background-color:'+color+'; color:black; padding:5px; style="font-weight:bold";">Warning !</div>').insertAfter('#editor-page .page-header');
 		}
 	}
 });
