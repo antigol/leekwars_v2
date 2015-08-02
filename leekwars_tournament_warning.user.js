@@ -16,8 +16,8 @@ LW.on('pageload', function()
 	if (LW.currentPage == 'editor')
 	{
 		var d = new Date();
-		var hour = d.getUTCHours() + 1;
-		var minutes = d.getUTCMinutes();
+		var hour = d.getHours(); // fonctionne uniquement dans le même fuseau horraire que la france.
+		var minutes = d.getMinutes();
 		
 		if ((hour >= 11 && hour < 14) || (hour >= 17 && hour < 20) || (hour >= 20 && hour < 23)) {
 			$('<div style="background-color:red; color:black; padding:5px; style="font-weight:bold";">Warning !</div>').insertAfter('#editor-page .page-header');
