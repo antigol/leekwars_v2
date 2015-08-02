@@ -5,8 +5,8 @@
 // @description   Ajoute un warning
 // @author        Chabrogar
 // @projectPage   https://github.com/antigol/leekwars_v2
-// @downloadURL   https://github.com/antigol/leekwars_v2/raw/master/leekwars_editor_import_export.user.js
-// @updateURL     https://github.com/antigol/leekwars_v2/raw/master/leekwars_editor_import_export.user.js
+// @downloadURL   https://github.com/antigol/leekwars_v2/raw/master/leekwars_tournament_warning.user.js
+// @updateURL     https://github.com/antigol/leekwars_v2/raw/master/leekwars_tournament_warning.user.js
 // @match         http://leekwars.com/*
 // @grant         none
 // ==/UserScript==
