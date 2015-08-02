@@ -15,7 +15,13 @@ LW.on('pageload', function()
 {
 	if (LW.currentPage == 'editor')
 	{
-		$('#editor-page .tabs').prepend('Warning !');
+		var d = new Date();
+		var hour = d.getUTCHours() + 1;
+		var minutes = d.getUTCMinutes();
+		
+		if (hour == 11 || hour == 17 || hour == 20) {
+			$('#editor-page .tabs').append('<br /><div style="background-color:red; color:black; padding:5px; style="font-weight:bold";">Warning !</div>');
+		}
 	}
 });
 
