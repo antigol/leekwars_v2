@@ -19,8 +19,8 @@ LW.on('pageload', function()
 		var hour = d.getUTCHours() + 1;
 		var minutes = d.getUTCMinutes();
 		
-		if (hour == 11 || hour == 17 || hour == 20) {
-			$('#editor-page .tabs').append('<br /><div style="background-color:red; color:black; padding:5px; style="font-weight:bold";">Warning !</div>');
+		if ((hour >= 11 && hour < 14) || (hour >= 17 && hour < 20) || (hour >= 20 && hour < 23)) {
+			$('<div style="background-color:red; color:black; padding:5px; style="font-weight:bold";">Warning !</div>').insertAfter('#editor-page .page-header');
 		}
 	}
 });
