@@ -31,7 +31,7 @@
             }
         }
         
-        if (offset >= 0) {
+        if (offset >= 0 && offset <= 20) {
             if (offset <= 5) $('.tournament_warning').css('background-color', 'red');
             else $('.tournament_warning').css('background-color', 'orange');
 
@@ -47,6 +47,7 @@
     LW.on('pageload', function() {
         if (LW.currentPage == 'editor') {
             $('<div class="tournament_warning"></div>').insertAfter('#editor-page .page-header');
+            $('.tournament_warning').hide();
             $('.tournament_warning').css('font-weight', 'bold');
             $('.tournament_warning').css('padding', '3px');
             interval = setInterval(warn, 1000);
