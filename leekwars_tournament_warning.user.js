@@ -21,7 +21,7 @@ LW.on('pageload', function()
 		
 		if ((hour >= 11 && hour < 14) || (hour >= 17 && hour < 20) || (hour >= 20 && hour < 23)) {
 			var color = 'orange';
-			if (minutes >= 25 && minutes <= 31) color = 'red';
+			if ((minutes >= 25 && minutes <= 31) || (minutes >= 55 || minutes <= 1)) color = 'red';
 			$('<div style="background-color:'+color+'; color:black; padding:5px; style="font-weight:bold";">Warning !</div>').insertAfter('#editor-page .page-header');
 		}
 	}
