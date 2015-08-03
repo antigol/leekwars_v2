@@ -28,14 +28,18 @@ function warn() {
         }
         
         $('.tournament_warning').html('Warning ! it is '+d.toLocaleTimeString());
-	}
+    } else {
+        $('.tournament_warning').html('');
+    }
 }
 
 var interval = 0;
 
 LW.on('pageload', function() {
 	if (LW.currentPage == 'editor') {
-        $('<div class="tournament_warning" style="background-color:red; color:black; padding:5px; style="font-weight:bold";"></div>').insertAfter('#editor-page .page-header');
+        $('<div class="tournament_warning"></div>').insertAfter('#editor-page .page-header');
+        $('.tournament_warning').css('font-weight', 'bold');
+        $('.tournament_warning').css('padding', '3px');
 		interval = setInterval(warn, 1000);
 	} else {
 		clearInterval(interval);
