@@ -42,7 +42,7 @@ var saveAs=saveAs||function(e){"use strict";if("undefined"==typeof navigator||!/
 		_.post('ai/get-farmer-ais', {}, function(x) {
 			if (!x.success) { return; }
 			
-			// see JSZip
+			// Avec l'aide de JSZip
 			var zip = new JSZip();
 			var counter = 0;
 			
@@ -55,8 +55,13 @@ var saveAs=saveAs||function(e){"use strict";if("undefined"==typeof navigator||!/
 					_.toast(''+counter+'/'+x.ais.length+' '+y.ai.name+' added to the zip file');
 					
 					if (counter == x.ais.length) {
-						var content = zip.generate({type:"blob"});
-						// see FileSaver.js
+						var content = null;
+						if (JSZip.support.uint8array) {
+							content = zip.generate({type : "uint8array"});
+						} else {
+							content = zip.generate({type : "string"});
+						}
+						// Avec l'aide de FileSaver.js
 						saveAs(content, ''+LW.farmer.name+'.zip');
 					}
 				});
